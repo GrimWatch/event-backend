@@ -43,10 +43,10 @@ const eventSchema = new mongoose.Schema({
         required: [true, 'Event should have a coOrdinateNumber'],
     },
     
-    // whatsappGroup: {
-    //     type: String,
-    //     required: [true, 'Event should have a whastapp group'],
-    // },
+    whatsappGroup: {
+        type: String,
+        required: [true, 'Event should have a whastapp group'],
+    },
 
     isTechnical: {
         type: Boolean,
