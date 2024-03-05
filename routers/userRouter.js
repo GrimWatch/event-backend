@@ -9,12 +9,16 @@ router
 router
     .route('/')
     .get(userController.getAllUser)
-    .post(userController.userPaymentPhoto,userController.createUser)
+    // .post(userController.userPaymentPhoto,userController.createUser)
+    .post(userController.createUser)
+    
+
 
 router
     .route('/:id')
     .get(userController.getUser)
-    .patch(userController.userPaymentPhoto,userController.updateUser)
+    // .patch(userController.userPaymentPhoto,userController.updateUser)
+    .patch(userController.updateUser)
     .delete(userController.deleteUser)
 
 
