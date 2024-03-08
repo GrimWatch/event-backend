@@ -52,6 +52,11 @@ const eventSchema = new mongoose.Schema({
         type: Boolean,
         required: [true, 'Event should have a technical field '],
     },
+    price: {
+        type: String,
+        default:"0"
+
+    },
 })
 
 

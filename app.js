@@ -1,11 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-const path =require('path');
 const helmet =require('helmet');
 const hpp =require('hpp');
 const mongoSanitize=require('express-mongo-sanitize');
 const {rateLimit}=require('express-rate-limit');
 const { sanitize } = require('dompurify');
+// const path =require('path');
 
 const eventRouter = require('./routers/eventRouter');
 const userRouter = require('./routers/userRouter');
@@ -37,8 +37,10 @@ app.use((req, res, next) => {
 app.use(hpp({whitelist:["duration","timings"]}))
 app.use(cors());
 
-app.use('/img/events', express.static(path.join(__dirname, 'public', 'img', 'events')));
-app.use('/img/users', express.static(path.join(__dirname, 'public', 'img', 'users')));
+//this features is not implemented since we store the image in db
+// app.use('/img/events', express.static(path.join(__dirname, 'public', 'img', 'events')));
+// app.use('/img/users', express.static(path.join(__dirname, 'public', 'img', 'users')));
+
 app.use('/api/v1/event', eventRouter);
 app.use('/api/v1/user', userRouter);
 

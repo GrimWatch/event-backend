@@ -2,6 +2,7 @@ const User = require('../models/userModel')
 const APIFeatures = require('./../utils/helper');
 
 
+
 // const multer = require('multer');
 
 
@@ -39,17 +40,17 @@ const APIFeatures = require('./../utils/helper');
 exports.isEmailExist = async (req, res) => {
     try {
 
-        const user = await User.findOne({email:req.body.email})
+        const user = await User.findOne({ email: req.body.email })
 
         if (!user) {
 
             res.status(200)
-            .json({
-                status: 'success',
-                data: "email does not exist"
-            })
-    }
-    
+                .json({
+                    status: 'success',
+                    data: "email does not exist"
+                })
+        }
+
 
         else {
             res.status(400)
@@ -77,18 +78,24 @@ exports.getAllUser = async (req, res) => {
 
     try {
 
+
         const features = new APIFeatures(User.find(), req.query)
             .filter()
             .sort()
             .limitFields()
             .paginate();
 
-        const users = await features.query;
+            
+            const users = await features.query;
+            const totalUsers = await User.countDocuments();
+
+
 
         res
             .status(200)
             .json({
                 status: 'success',
+                totalUsers,
                 data: users
             })
 

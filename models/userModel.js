@@ -34,12 +34,11 @@ const userSchema = new mongoose.Schema({
     required: [true, "please upload the image"]
   },
 
-  transactionId: {
-    type: String,
-    required: [true, "please provide the transaction id"]
-  },
-
-
+  isVerified:{
+    type:Boolean,
+    default:false
+    }
+    
 })
 
 const User = mongoose.model("User", userSchema);
