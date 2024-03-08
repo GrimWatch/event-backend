@@ -136,7 +136,6 @@ exports.getUser = async (req, res) => {
 exports.createUser = async (req, res) => {
     try {
 
-        console.log(req.body)
 
         // if (req.file) req.body.userPaymentPhoto = `http://localhost:8000/img/users/${req.file.filename}`;
 
