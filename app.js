@@ -5,7 +5,15 @@ const hpp =require('hpp');
 const mongoSanitize=require('express-mongo-sanitize');
 const {rateLimit}=require('express-rate-limit');
 const { sanitize } = require('dompurify');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+
+dotenv.config();
 // const path =require('path');
+
+mongoose.connect(process.env.DATABASE_CONNECTION)
+    .then(() => console.log('Database is connected successfully'))
+    .catch((err) => console.log(err))
 
 const eventRouter = require('./routers/eventRouter');
 const userRouter = require('./routers/userRouter');
@@ -24,6 +32,8 @@ const limiter = rateLimit({
 app.use(limiter)
 app.use(express.json());
 app.use(mongoSanitize());
+app.set('trust proxy', 1)
+// app.get('/ip', (request, response) => response.send(request.ip))
 
 app.use((req, res, next) => {
     for (const key in req.body) {
