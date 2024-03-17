@@ -1,42 +1,6 @@
 const User = require('../models/userModel')
 const APIFeatures = require('./../utils/helper');
 
-
-
-// const multer = require('multer');
-
-
-
-// const multerStorage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb(null, 'public/img/users');
-//     },
-//     filename: (req, file, cb) => {
-//         const ext = file.mimetype.split('/')[1];
-//         const name = req.body.name.split(" ").join("-")
-
-//         cb(null, `user-${name}-${req.body.email}-${Date.now()}.${ext}`);
-//     }
-// });
-
-
-// const multerFilter = (req, file, cb) => {
-//     if (file.mimetype.startsWith('image')) {
-//         cb(null, true);
-//     } else {
-//         cb(new Error('Not an image! Please upload only images.', 400), false);
-//     }
-// };
-
-// const upload = multer({
-//     storage: multerStorage,
-//     fileFilter: multerFilter
-// });
-
-
-// exports.userPaymentPhoto = upload.single('userPaymentPhoto');
-
-
 exports.isEmailExist = async (req, res) => {
     try {
 
