@@ -4,7 +4,7 @@ exports.sendEmail = async (req, res) => {
     const {email} = req.body
     const {name} = req.body
     try{
-
+        console.log({email:email, name:name})
         const transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
             port: 587,
