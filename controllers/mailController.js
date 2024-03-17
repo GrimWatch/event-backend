@@ -21,8 +21,8 @@ exports.sendEmail = async (req, res) => {
             text: `Hello ${name}, Your Registration for TechAzura 2024 has been confirmed. \n Events : ${events}`, 
             html: `<p><h1><b>Hello ${name}, Your Registration for TechAzura 2024 has been confirmed.</b></h1><br> <h3>Events : ${events}</h3></p> <img src="https://s6.imgcdn.dev/WcFdD.jpg" alt="WcFdD.jpg" border="0" height="500px" width="auto">`, 
           });
-          res.send({name:name, email:email})
-        //   res.send("Email Sent")
+          
+        res.send("Email Sent")
 
     } catch (error) {
         res
