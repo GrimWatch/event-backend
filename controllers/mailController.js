@@ -24,7 +24,7 @@ exports.sendEmail = async (req, res) => {
           res.send("Email Sent")
 
     } catch (error) {
-        console.log(req.body)
+        res.send(req.body)
         res
             .status(400)
             .json({
