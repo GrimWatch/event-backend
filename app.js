@@ -17,6 +17,7 @@ mongoose.connect(process.env.DATABASE_CONNECTION)
 
 const eventRouter = require('./routers/eventRouter');
 const userRouter = require('./routers/userRouter');
+const mailRouter = require('./routers/mailRouter')
 
 const app = express();
 
@@ -53,7 +54,7 @@ app.use(cors());
 
 app.use('/api/v1/event', eventRouter);
 app.use('/api/v1/user', userRouter);
-
+app.use('/api/v1/mail', mailRouter)
 
 app.all("*",(req,res,next)=>{
     res.status(404).json({
