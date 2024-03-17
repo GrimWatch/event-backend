@@ -1,7 +1,8 @@
 const nodemailer = require("nodemailer");
 
 exports.sendEmail = async (req, res) => {
-    console.log({email:req.body.email, name:req.body.name})
+    const {email} = req.body
+    const {name} = req.body
     try{
         const transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
@@ -14,13 +15,13 @@ exports.sendEmail = async (req, res) => {
 
         await transporter.sendMail({
             from: '"TechAzura 2024" <info.techazura@gmail.com>',
-            to: `${req.body.email}`,
+            to: `${email}`,
             subject: "TechAzura 2024 Confirmation!", 
-            text: `Hello ${req.body.name}, Your Registration for TechAzura 2024 has been confirmed.`, 
-            html: `<b>Hello ${req.body.name}, Your Registration for TechAzura 2024 has been confirmed.</b>`, 
+            text: `Hello ${name}, Your Registration for TechAzura 2024 has been confirmed.`, 
+            html: `<b>Hello ${name}, Your Registration for TechAzura 2024 has been confirmed.</b>`, 
           });
-
-          res.send("Email Sent")
+          res.send({name:name, email:email})
+        //   res.send("Email Sent")
 
     } catch (error) {
         res
