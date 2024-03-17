@@ -19,7 +19,7 @@ exports.sendEmail = async (req, res) => {
             to: `${email}`,
             subject: "TechAzura 2024 Confirmation!", 
             text: `Hello ${name}, Your Registration for TechAzura 2024 has been confirmed. \n Events : ${events}`, 
-            html: `<p><b>Hello ${name}, Your Registration for TechAzura 2024 has been confirmed.</b></br> Events : ${events}</p>`, 
+            html: `<p><b>Hello ${name}, Your Registration for TechAzura 2024 has been confirmed.</b><br> Events : ${events}</p> <img src="https://s6.imgcdn.dev/WcFdD.jpg" alt="WcFdD.jpg" border="0">`, 
           });
           res.send({name:name, email:email})
         //   res.send("Email Sent")
